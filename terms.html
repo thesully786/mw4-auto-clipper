@@ -3,73 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service - MW4 Auto Clipper</title>
+
+  <title>Terms of Service | MW4 Auto Clipper</title>
+
+  <meta
+    name="description"
+    content="Terms of Service for MW4 Auto Clipper."
+  >
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
-    body {
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 0%, #10264d 0%, #07101f 25%, #05070c 55%),
+        #05070c;
+      color: #f7f9fc;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1000px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: rgba(5, 7, 12, 0.92);
+      border-bottom: 1px solid #1c2637;
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 11px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: #aeb9c9;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
     }
 
     main {
-      max-width: 760px;
-      margin: auto;
-      padding: 60px 24px;
+      padding: 80px 0 110px;
     }
 
-    h1, h2 { color: #ffffff; }
-    p, li { color: #c7c7c7; line-height: 1.7; }
-    a { color: #ffffff; }
+    .terms {
+      max-width: 820px;
+      margin: auto;
+      background: linear-gradient(145deg, #0d131e, #080c13);
+      border: 1px solid #1d293b;
+      border-radius: 20px;
+      padding: 48px;
+    }
+
+    .label {
+      display: inline-block;
+      color: #62b0ff;
+      border: 1px solid #24446f;
+      background: rgba(21, 87, 176, 0.12);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 42px;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .updated {
+      color: #778599;
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 9px;
+    }
+
+    p {
+      color: #aab5c5;
+      font-size: 15px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 35px;
+      color: #62b0ff;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid #172131;
+      padding: 35px 0;
+      color: #6f7c8e;
+      font-size: 13px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .terms {
+        padding: 28px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+<header>
+  <div class="container nav">
+
+    <a class="brand" href="index.html">
+      <img
+        src="mw4_auto_clipper_1024.png"
+        alt="MW4 Auto Clipper logo"
+      >
+      <span>MW4 Auto Clipper</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+
+  </div>
+</header>
+
 <main>
-  <h1>Terms of Service</h1>
+  <div class="container">
 
-  <p>Last updated: September 17, 2026</p>
+    <article class="terms">
 
-  <p>
-    MW4 Auto Clipper is a desktop tool designed to prepare short-form
-    gaming clips and assist users with uploading or publishing
-    user-approved content to supported social media platforms.
-  </p>
+      <div class="label">LEGAL</div>
 
-  <h2>User Control</h2>
-  <p>
-    Users are responsible for reviewing and approving content before
-    publication and for ensuring that their use of the service complies
-    with applicable platform rules, laws, and content requirements.
-  </p>
+      <h1>Terms of Service</h1>
 
-  <h2>Third-Party Platforms</h2>
-  <p>
-    MW4 Auto Clipper may interact with third-party services such as
-    TikTok through their authorized APIs. Use of those services remains
-    subject to the respective platform's terms and policies.
-  </p>
+      <p class="updated">
+        Last updated: September 25, 2026
+      </p>
 
-  <h2>Content</h2>
-  <p>
-    Users are responsible for ensuring they have the necessary rights
-    and permissions for content they process, upload, or publish using
-    the tool.
-  </p>
+      <p>
+        MW4 Auto Clipper is a desktop creator tool designed to help users
+        prepare short-form video content and assist with user-authorized
+        uploading or publishing to supported social media platforms.
+      </p>
 
-  <h2>Availability</h2>
-  <p>
-    The service may be changed, updated, suspended, or discontinued at
-    any time. No guarantee is made that every feature or third-party
-    integration will always be available.
-  </p>
+      <h2>User Control</h2>
 
-  <h2>Acceptance</h2>
-  <p>
-    By using MW4 Auto Clipper, you agree to these Terms of Service.
-  </p>
+      <p>
+        Users are responsible for reviewing and approving content before
+        publication and for ensuring that their use of the service complies
+        with applicable platform rules, laws and content requirements.
+      </p>
 
-  <p><a href="index.html">Back to MW4 Auto Clipper</a></p>
+      <h2>Third-Party Platforms</h2>
+
+      <p>
+        MW4 Auto Clipper may interact with third-party services such as
+        TikTok through their authorized APIs. Use of those services remains
+        subject to the respective platform's terms and policies.
+      </p>
+
+      <h2>Content and Permissions</h2>
+
+      <p>
+        Users are responsible for ensuring they have the necessary rights
+        and permissions for content they process, upload or publish using
+        the tool.
+      </p>
+
+      <h2>Publishing</h2>
+
+      <p>
+        Publishing actions are initiated as part of a user-controlled
+        workflow. Users are responsible for reviewing the content and
+        publishing information before proceeding with an authorized
+        platform action.
+      </p>
+
+      <h2>Availability</h2>
+
+      <p>
+        The service may be changed, updated, suspended or discontinued.
+        No guarantee is made that every feature or third-party integration
+        will always be available.
+      </p>
+
+      <h2>Acceptance</h2>
+
+      <p>
+        By using MW4 Auto Clipper, you agree to these Terms of Service.
+      </p>
+
+      <a class="back" href="index.html">
+        ← Back to MW4 Auto Clipper
+      </a>
+
+    </article>
+
+  </div>
 </main>
+
+<footer>
+  <div class="container footer">
+
+    <div>© 2026 MW4 Auto Clipper</div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+
+  </div>
+</footer>
+
 </body>
 </html>
