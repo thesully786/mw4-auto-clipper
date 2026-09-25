@@ -3,62 +3,602 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MW4 Auto Clipper</title>
+
+  <title>MW4 Auto Clipper | Creator Video Workflow</title>
+
+  <meta
+    name="description"
+    content="MW4 Auto Clipper is a desktop creator tool for analysing video, generating short-form clips, reviewing edits and preparing approved content for publishing."
+  >
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: Arial, sans-serif;
+      padding: 0;
     }
 
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 80px 24px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
-
-    p {
-      color: #c7c7c7;
-      line-height: 1.7;
-      font-size: 18px;
-    }
-
-    nav {
-      margin-top: 40px;
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 0%, #10264d 0%, #07101f 25%, #05070c 55%),
+        #05070c;
+      color: #f7f9fc;
+      line-height: 1.6;
     }
 
     a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 7, 12, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #1c2637;
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 11px;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      color: #b9c2d0;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
       color: #ffffff;
-      margin-right: 24px;
+    }
+
+    .hero {
+      padding: 105px 0 90px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #24446f;
+      background: rgba(21, 87, 176, 0.12);
+      color: #70b7ff;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-logo {
+      width: 118px;
+      height: 118px;
+      object-fit: cover;
+      border-radius: 27px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 60px rgba(0, 132, 255, 0.24);
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff, #6cb8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #aab5c5;
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .primary {
+      background: #1687ff;
+      color: white;
+      box-shadow: 0 8px 30px rgba(22, 135, 255, 0.25);
+    }
+
+    .secondary {
+      border: 1px solid #273348;
+      background: #0c111b;
+      color: #dce5f2;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+
+    .section-heading span {
+      color: #4ba5ff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: 38px;
+      margin: 9px 0 12px;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      color: #99a5b6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #0d131e, #080c13);
+      border: 1px solid #1d293b;
+      border-radius: 17px;
+      padding: 28px;
+      min-height: 220px;
+    }
+
+    .card-number {
+      width: 39px;
+      height: 39px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #102d50;
+      color: #62b0ff;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #909cad;
+      font-size: 14px;
+    }
+
+    .workflow {
+      border-top: 1px solid #141e2c;
+      border-bottom: 1px solid #141e2c;
+      background: rgba(9, 14, 23, 0.72);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 24px 12px;
+    }
+
+    .step strong {
+      display: block;
+      color: #54aaff;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: #b0bac8;
+    }
+
+    .review-box {
+      max-width: 850px;
+      margin: auto;
+      border: 1px solid #244162;
+      background: linear-gradient(145deg, #0b1726, #080d15);
+      border-radius: 20px;
+      padding: 42px;
+      text-align: center;
+    }
+
+    .review-box h2 {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .review-box p {
+      color: #9faaba;
+      max-width: 670px;
+      margin: auto;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .status {
+      padding: 8px 13px;
+      border: 1px solid #253750;
+      background: #0b121d;
+      border-radius: 999px;
+      color: #b9c7d9;
+      font-size: 13px;
+    }
+
+    footer {
+      border-top: 1px solid #172131;
+      padding: 42px 0;
+      color: #778497;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .disclaimer {
+      max-width: 700px;
+      margin-top: 18px;
+      color: #596678;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <h1>MW4 Auto Clipper</h1>
 
-    <p>
-      MW4 Auto Clipper is a desktop tool that prepares short-form gaming
-      clips and allows user-approved content to be uploaded or published
-      to supported social media platforms.
-    </p>
+<header>
+  <div class="container nav">
 
-    <p>
-      Content is reviewed and approved by the user before it enters the
-      publishing workflow.
-    </p>
+    <a class="brand" href="#">
+      <img
+        src="mw4_auto_clipper_1024.png"
+        alt="MW4 Auto Clipper logo"
+      >
+      <span>MW4 Auto Clipper</span>
+    </a>
 
-    <nav>
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#workflow">How It Works</a>
+      <a href="#publishing">Publishing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </nav>
-  </main>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+
+      <img
+        class="hero-logo"
+        src="mw4_auto_clipper_1024.png"
+        alt="MW4 Auto Clipper application icon"
+      >
+
+      <div class="badge">DESKTOP CREATOR WORKFLOW</div>
+
+      <h1>
+        Turn long videos into<br>
+        <span class="gradient">review-ready clips.</span>
+      </h1>
+
+      <p>
+        MW4 Auto Clipper is a desktop creator tool that helps users analyse
+        source video, identify useful short-form moments, generate vertical
+        edits, review the results and prepare approved content for publishing.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button primary" href="#workflow">
+          See How It Works
+        </a>
+
+        <a class="button secondary" href="#features">
+          Explore Features
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="features">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>Features</span>
+
+        <h2>A complete clipping workflow</h2>
+
+        <p>
+          Designed to keep video preparation, review and publishing organised
+          in one creator-controlled workflow.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-number">01</div>
+
+          <h3>Video Import</h3>
+
+          <p>
+            Add supported source videos to a project while keeping the
+            creator's original media under their control.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">02</div>
+
+          <h3>Clip Analysis</h3>
+
+          <p>
+            Analyse source material and identify candidate moments that can
+            be turned into short-form video clips.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">03</div>
+
+          <h3>Vertical Rendering</h3>
+
+          <p>
+            Prepare short-form vertical edits with creator-facing formatting
+            suitable for modern social video workflows.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">04</div>
+
+          <h3>Creator Review</h3>
+
+          <p>
+            Generated clips enter a review stage so the user can inspect,
+            approve or reject content before it moves forward.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">05</div>
+
+          <h3>Publishing Preparation</h3>
+
+          <p>
+            Approved clips can be prepared for supported social platforms
+            with captions and publishing information visible to the creator.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">06</div>
+
+          <h3>Project Organisation</h3>
+
+          <p>
+            Separate projects keep source media, generated clips, review
+            decisions and publishing states organised.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="workflow" id="workflow">
+    <div class="container">
+
+      <div class="section-heading">
+        <span>Workflow</span>
+
+        <h2>Creator control from start to finish</h2>
+
+        <p>
+          Content does not move directly from analysis to publishing.
+          The creator reviews the generated result before approving it.
+        </p>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <strong>STEP 1</strong>
+          <p>Import source video</p>
+        </div>
+
+        <div class="step">
+          <strong>STEP 2</strong>
+          <p>Analyse content</p>
+        </div>
+
+        <div class="step">
+          <strong>STEP 3</strong>
+          <p>Generate clips</p>
+        </div>
+
+        <div class="step">
+          <strong>STEP 4</strong>
+          <p>Review &amp; approve</p>
+        </div>
+
+        <div class="step">
+          <strong>STEP 5</strong>
+          <p>Prepare publishing</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="publishing">
+    <div class="container">
+
+      <div class="review-box">
+
+        <div class="badge">HUMAN REVIEW</div>
+
+        <h2>The creator stays in control.</h2>
+
+        <p>
+          MW4 Auto Clipper is built around a review-first workflow.
+          Generated content can be inspected before publishing preparation,
+          allowing the creator to confirm the clip, caption and other
+          publishing details before continuing.
+        </p>
+
+        <div class="status-row">
+          <div class="status">Import</div>
+          <div class="status">Analyse</div>
+          <div class="status">Generate</div>
+          <div class="status">Review</div>
+          <div class="status">Approve / Reject</div>
+          <div class="status">Publishing</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+
+    <div class="footer-inner">
+
+      <div>
+        <strong style="color:#d9e1ec;">
+          MW4 Auto Clipper
+        </strong>
+        <br>
+        Creator video workflow software
+      </div>
+
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="#features">Features</a>
+        <a href="#workflow">How It Works</a>
+      </div>
+
+    </div>
+
+    <p class="disclaimer">
+      MW4 Auto Clipper is an independent creator software project.
+      References to third-party platforms or services describe supported
+      workflows and do not imply endorsement, sponsorship or affiliation.
+    </p>
+
+  </div>
+</footer>
+
 </body>
 </html>
